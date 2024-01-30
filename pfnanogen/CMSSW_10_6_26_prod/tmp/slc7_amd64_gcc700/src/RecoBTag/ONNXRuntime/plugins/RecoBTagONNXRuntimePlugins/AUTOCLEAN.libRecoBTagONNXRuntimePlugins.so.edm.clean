@@ -1,0 +1,2 @@
+01:/usr/bin/rm -f lib/slc7_amd64_gcc700/pluginRecoBTagONNXRuntimePlugins.so lib/slc7_amd64_gcc700/RecoBTagONNXRuntimePlugins.edmplugin
+90:edmPluginRefresh lib/slc7_amd64_gcc700

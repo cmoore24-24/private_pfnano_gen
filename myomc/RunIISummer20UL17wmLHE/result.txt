@@ -1,0 +1,2855 @@
+MyMCName HJ-fragment.py 40 4 1 pileupinput.txt
+Input arg 2 = HJ-fragment.py
+After readlink fragment = /uscms_data/d3/cjmoore/powheg/test/myomc/RunIISummer20UL17wmLHE/HJ-fragment.py
+Fragment=/uscms_data/d3/cjmoore/powheg/test/myomc/RunIISummer20UL17wmLHE/HJ-fragment.py
+Job name=MyMCName
+NEvents=40
+Random seed=1005
+Pileup filelist=filelist:pileupinput.txt
+release CMSSW_10_6_28_patch1 already exists
+>> Local Products Rules ..... started
+>> Local Products Rules ..... done
+>> Building CMSSW version CMSSW_10_6_28_patch1 ----
+>> Entering Package Configuration/GenProduction
+>> Creating project symlinks
+>> Leaving Package Configuration/GenProduction
+>> Package Configuration/GenProduction built
+>> Subsystem Configuration built
+>> Subsystem BigProducts built
+gmake[1]: Entering directory '/uscms_data/d3/cjmoore/powheg/test/MYOMC/RunIISummer20UL17wmLHE/CMSSW_10_6_28_patch1'
+>> Local Products Rules ..... started
+>> Local Products Rules ..... done
+>> Creating project symlinks
+>> Done python_symlink
+>> Compiling python modules cfipython/slc7_amd64_gcc700
+>> Compiling python modules python
+>> Compiling python modules src/Configuration/GenProduction/python
+>> All python modules compiled
+>> Plugins of all types refreshed.
+>> Done generating edm plugin poisoned information
+gmake[1]: Leaving directory '/uscms_data/d3/cjmoore/powheg/test/MYOMC/RunIISummer20UL17wmLHE/CMSSW_10_6_28_patch1'
+LHE,GEN,ENDJOB
+with DB:
+Step: LHE Spec: 
+Loading lhe fragment from Configuration.GenProduction.fragment
+Step: GEN Spec: 
+Loading generator fragment from Configuration.GenProduction.fragment
+Step: ENDJOB Spec: 
+customising the process with addMonitoring from Configuration/DataProcessing/Utils
+Config file RunIISummer20UL17wmLHE_MyMCName_cfg.py created
+   ______________________________________     
+         Running Generic Tarball/Gridpack     
+   ______________________________________     
+gridpack tarball path = /cvmfs/cms.cern.ch/phys_generator/gridpacks/UL/13TeV/powheg/V2/HJ_slc7_amd64_gcc820_CMSSW_10_6_29_HJ_MINLO_Pt-200ToInf-v3/v1/HJ_slc7_amd64_gcc820_CMSSW_10_6_29_HJ_MINLO_Pt-200ToInf-v3.tgz
+%MSG-MG5 number of events requested = 40
+%MSG-MG5 random seed used for the run = 1005
+%MSG-MG5 thread count requested = 1
+%MSG-MG5 residual/optional arguments = 
+   ______________________________________     
+         Running Powheg                       
+   ______________________________________     
+%MSG-POWHEG number of events requested = 40
+%MSG-POWHEG random seed used for the run = 1005
+%MSG-POWHEG number of cputs for the run = 1
+%MSG-MG5 SCRAM_ARCH version = slc7_amd64_gcc820
+%MSG-MG5 CMSSW version = CMSSW_10_6_29
+numevts 40
+ih1   1           ! hadron 1 (1 for protons, -1 for antiprotons)
+ih2   1           ! hadron 2 (1 for protons, -1 for antiprotons)
+ebeam1 6500d0      ! energy of beam 1
+ebeam2 6500d0      ! energy of beam 2
+
+hmass 125
+hwidth 0.004221d0
+
+hdecaywidth 0        ! If equals to 1 read total decay width from HDECAY sm.br2 file
+                     ! if 0 the hwidth value is used
+
+
+bwcutoff 15        ! how many W widths below and above the Higgs mass are included
+
+! To be set only if using LHA pdfs
+lhans1   325300      ! pdf set for hadron 1 (LHA numbering)
+lhans2   325300     ! pdf set for hadron 2 (LHA numbering)
+
+! Parameters to allow or not the use of stored data
+use-old-grid    1 ! if 1 use old grid if file pwggrids.dat is present (<> 1 regenerate)
+use-old-ubound  1 ! if 1 use norm of upper bounding function stored in pwgubound.dat, if present; <> 1 regenerate
+
+
+ncall1   150000    ! number of calls for initializing the integration grid
+itmx1    1        ! number of iterations for initializing the integration grid
+ncall2   100000   ! number of calls for computing the integral and finding upper bound
+itmx2    5        ! number of iterations for computing the integral and finding upper bound
+fastbtlbound 1    ! (default 0) if 1 use fast btilde bound
+storemintupb 1    ! store calls for grids
+foldcsi   2       ! number of folds on csi integration
+foldy     2       ! number of folds on  y  integration
+foldphi   2       ! number of folds on phi integration
+nubound 2000    ! number of bbarra calls to setup norm of upper bounding function
+
+! OPTIONAL PARAMETERS
+
+testplots  1       ! (default 0, do not) do NLO and PWHG distributions
+
+#withnegweights 1 1  ! (1 default) If 1 output negative weighted events.
+                   ! If 0 descard them
+
+renscfact  1d0   ! (default 1d0) ren scale factor: muren  = muref * renscfact 
+facscfact  1d0   ! (default 1d0) fac scale factor: mufact = muref * facscfact 
+
+bornktmin 200.0    ! Minimum transverse momentum of the Higgs at the underlying Born level
+
+minlo 1            ! default 0, set to 1 to use minlo
+
+factsc2min 2       ! at this value the factorization scale is frozen (neede with minlo)
+
+sudscalevar 1      ! (default 1) scale variation also in Sudakov form factors in minlo 
+
+iseed 1005
+
+# variables for including quark mass effects
+quarkmasseffects 1   ! Include quark mass effects
+topmass 172.5d0      ! top quark mass (172.5 in HNNLO-patches/mdata.f)
+bottommass 3.38d0    ! bottom quark mass in MSbar at MH
+bmass_in_minlo 1     ! Include quark mass effects in Sudakov exponent
+
+
+#manyseeds 1
+
+#parallelstage 4
+
+#xgriditeration 1 1
+
+
+#pdfreweight 0
+
+#storeinfo_rwgt 0
+rwl_group_events 2000
+lhapdf6maxsets 50
+rwl_file 'pwg-rwl.dat'
+rwl_format_rwgt 1
+SVN status Begin
+/uscms_data/d3/ncsmith/dazsle/genHiggsStuff/powhegMiNLO/CMSSW_10_6_29/src/genproductions/bin/Powheg/HJ_MINLO_Pt-200ToInf_pack/POWHEG-BOX/HJ
+no svn repository found
+/uscms_data/d3/ncsmith/dazsle/genHiggsStuff/powhegMiNLO/CMSSW_10_6_29/src/genproductions/bin/Powheg/HJ_MINLO_Pt-200ToInf_pack/POWHEG-BOX
+URL: svn://powhegbox.mib.infn.it/trunk/POWHEG-BOX-V2
+Rev.3728
+Warning: not a clean version:
+M       include/pwhg_lhrwgt.h
+M       include/pwhg_rwl.h
+M       lhefwrite.f
+M       rwl_weightlists.f
+SVN status End
+  found input file powheg.input
+  opened powheg.input
+  powheginput keyword compress_lhe         absent; set to   -1000000.0000000000     
+  powheginput keyword compress_upb         absent; set to   -1000000.0000000000     
+  powheginput keyword testplots            set to    1.0000000000000000     
+  powheginput keyword numevts              set to    40.000000000000000     
+  powheginput keyword storemintupb         set to    1.0000000000000000     
+  powheginput keyword mintupbxless         absent; set to   -1000000.0000000000     
+  powheginput keyword fastbtlbound         set to    1.0000000000000000     
+  powheginput keyword mintupbratlim        absent; set to   -1000000.0000000000     
+  powheginput keyword StoredubNoOutliers   absent; set to   -1000000.0000000000     
+  powheginput keyword maxseeds             absent; set to   -1000000.0000000000     
+  powheginput keyword manyseeds            absent; set to   -1000000.0000000000     
+  powheginput keyword rwl_add              absent; set to   -1000000.0000000000     
+  powheginput keyword rwl_format_rwgt      set to    1.0000000000000000     
+  powheginput keyword flg_debug            absent; set to   -1000000.0000000000     
+  powheginput keyword withnegweights       absent; set to   -1000000.0000000000     
+  powheginput keyword bornsuppfact         absent; set to   -1000000.0000000000     
+  powheginput keyword ptsupp               absent; set to   -1000000.0000000000     
+  powheginput keyword doublefsr            absent; set to   -1000000.0000000000     
+  powheginput keyword smartsig             absent; set to   -1000000.0000000000     
+  powheginput keyword withsubtr            absent; set to   -1000000.0000000000     
+  powheginput keyword hfact                absent; set to   -1000000.0000000000     
+  powheginput keyword withdamp             absent; set to   -1000000.0000000000     
+  powheginput keyword bornzerodamp         absent; set to   -1000000.0000000000     
+  powheginput keyword hdamp                absent; set to   -1000000.0000000000     
+  powheginput keyword bornonly             absent; set to   -1000000.0000000000     
+  powheginput keyword LOevents             absent; set to   -1000000.0000000000     
+  powheginput keyword novirtual            absent; set to   -1000000.0000000000     
+  powheginput keyword iseed                set to    1005.0000000000000     
+  powheginput keyword rand1                absent; set to   -1000000.0000000000     
+  powheginput keyword rand2                absent; set to   -1000000.0000000000     
+  powheginput keyword iupperisr            absent; set to   -1000000.0000000000     
+  powheginput keyword iupperfsr            absent; set to   -1000000.0000000000     
+  powheginput keyword pdfreweight          absent; set to   -1000000.0000000000     
+  powheginput keyword storeinfo_rwgt       absent; set to   -1000000.0000000000     
+  powheginput keyword compute_rwgt         absent; set to   -1000000.0000000000     
+  powheginput keyword minlo                set to    1.0000000000000000     
+  powheginput keyword nnlops               absent; set to   -1000000.0000000000     
+  powheginput keyword alphas_from_pdf      absent; set to   -1000000.0000000000     
+  powheginput keyword alphas_from_lhapdf   absent; set to   -1000000.0000000000     
+  powheginput keyword ubexcess_correct     absent; set to   -1000000.0000000000     
+ RM48 INITIALIZED:      1005           0         0
+  powheginput keyword par_diexp            absent; set to   -1000000.0000000000     
+  powheginput keyword par_dijexp           absent; set to   -1000000.0000000000     
+  powheginput keyword par_2gsupp           absent; set to   -1000000.0000000000     
+  powheginput keyword ih1                  set to    1.0000000000000000     
+  powheginput keyword ih2                  set to    1.0000000000000000     
+  powheginput keyword lhans1               set to    325300.00000000000     
+  powheginput keyword lhans2               set to    325300.00000000000     
+  powheginput keyword lhapdf6maxsets       set to    50.000000000000000     
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0000.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #0, version 1; LHAPDF ID = 325300
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+  powheginput keyword ebeam1               set to    6500.0000000000000     
+  powheginput keyword ebeam2               set to    6500.0000000000000     
+  powheginput keyword bornktmin            set to    200.00000000000000     
+  powheginput keyword ptsqmin              absent; set to   -1000000.0000000000     
+  powheginput keyword charmthr             absent; set to   -1000000.0000000000     
+  powheginput keyword bottomthr            absent; set to   -1000000.0000000000     
+  powheginput keyword renscfact            set to    1.0000000000000000     
+  powheginput keyword facscfact            set to    1.0000000000000000     
+  powheginput keyword evenmaxrat           absent; set to   -1000000.0000000000     
+  powheginput keyword quarkmasseffects     set to    1.0000000000000000     
+  powheginput keyword minlo_nnll           absent; set to   -1000000.0000000000     
+  powheginput keyword runningscales        absent; set to   -1000000.0000000000     
+  powheginput keyword ckkwscalup           absent; set to   -1000000.0000000000     
+  powheginput keyword hmass                set to    125.00000000000000     
+  powheginput keyword hwidth               set to    4.2209999999999999E-003
+ ************** Electroweak parameters **************
+ *                                                  *
+ *  zmass(+)   91.1880000     wmass(+)  80.4190000  *
+ * zwidth(+)    2.4414035    wwidth(+)   2.0475995  *
+ *     Gf(+) 0.116639D-04   1/aemmz(+) 132.5069800  *
+ *     xw(+)    0.2222465      mtop(+) 174.3000000  *
+ *   gwsq       0.4267132       esq      0.0948355  *
+ * top width    1.5350142                           *
+ *    mb        0.0000000        mc      0.0000000  *
+ *                                                  *
+ * Parameters marked (+) are input, others derived  *
+ ****************************************************
+  powheginput keyword hdecaywidth          set to    0.0000000000000000     
+  powheginput keyword nnlo                 absent; set to   -1000000.0000000000     
+ NNLO rescaling disabled
+  powheginput keyword topmass              set to    172.50000000000000     
+  powheginput keyword bottommass           set to    3.3799999999999999     
+  powheginput keyword charmmass            absent; set to   -1000000.0000000000     
+ lambda  0.20839090910744684                5
+ Top Quark enabled
+ Bottom Quark enabled
+  powheginput keyword masswindow           absent; set to   -1000000.0000000000     
+ *************************************
+ H mass =    125.00000000000000     
+ H width =    4.2209999999999999E-003
+ *************************************
+   124.95779000000000       < M_H <   125.04221000000000     
+ *************************************
+ 2-loops EW corrections disabled
+ Active fermions
+           2
+ fermion masses
+   172.50000000000000        3.3799999999999999        0.0000000000000000     
+ fermion couplings
+   1.0000000000000000        1.0000000000000000        0.0000000000000000     
+ 1/alphaem =    137.03599967900001     
+ sthw2 =   0.22264585341299603     
+ GF =    1.1663899987193260E-005
+  **** Minimum maxalr allowed:          408  *********
+  **** Number of born graphs:            31
+  **** Number of real graphs:           176
+  **** Number of regular regions:           0
+  powheginput keyword softtest             absent; set to   -1000000.0000000000     
+  powheginput keyword colltest             absent; set to   -1000000.0000000000     
+  powheginput keyword chklimseed           absent; set to   -1000000.0000000000     
+  powheginput keyword tinyForLims          absent; set to   -1000000.0000000000     
+  powheginput keyword bwcutoff             set to    15.000000000000000     
+  powheginput keyword higgsfixedwidth      absent; set to   -1000000.0000000000     
+  powheginput keyword charmthrpdf          absent; set to   -1000000.0000000000     
+  powheginput keyword bottomthrpdf         absent; set to   -1000000.0000000000     
+ ===============================
+ LHAPDF called in POWHEG
+ pdf cutoff factor =    1.0000000000000000     
+ pdf cutoff [GeV] =    1.6499999999999999     
+ ===============================
+ ****************************************
+ ****************************************
+ **  mur=muf=MH used for Bbar function**
+ ****************************************
+ ****************************************
+ RM48 INITIALIZED:      1005       29584         0
+ RM48IN SKIPPING OVER           29584
+ RM48 INITIALIZED:      1005       29848         0
+ RM48IN SKIPPING OVER           29848
+ Writing realequiv file...
+ Done
+ RM48 INITIALIZED:      1005       29848         0
+ RM48IN SKIPPING OVER           29848
+ Writing realequivregions file...
+ Done
+  powheginput keyword olddij               absent; set to   -1000000.0000000000     
+  powheginput keyword bmass_in_minlo       set to    1.0000000000000000     
+  powheginput keyword factsc2min           set to    2.0000000000000000     
+  powheginput keyword frensc2min           absent; set to   -1000000.0000000000     
+  powheginput keyword bmass_sud_approx     absent; set to   -1000000.0000000000     
+  powheginput keyword bmass_sudakov_apprx  absent; set to   -1000000.0000000000     
+ RM48 INITIALIZED:      1005           0         0
+ Writing bornequiv file...
+ Done
+  POWHEG:  
+  Check of soft/collinear limits performed
+  Results in file pwhg_checklimits
+  powheginput keyword parallelstage        absent; set to   -1000000.0000000000     
+  powheginput keyword use-old-grid         set to    1.0000000000000000     
+  powheginput keyword foldcsi              set to    2.0000000000000000     
+  powheginput keyword foldy                set to    2.0000000000000000     
+  powheginput keyword foldphi              set to    2.0000000000000000     
+  powheginput keyword ncallfrominput       absent; set to   -1000000.0000000000     
+ upper bound grids successfully loaded
+ btilde pos.   weights:  0.46765146591851015       +-   3.1798940667304284E-003
+ btilde |neg.| weights:   1.1505885146987267E-004  +-   5.3526622926931489E-005
+ btilde total (pos.-|neg.|):  0.46753640706704114       +-   3.1411655118510772E-003
+  powheginput keyword nubound              set to    2000.0000000000000     
+  powheginput keyword iymax                absent; set to   -1000000.0000000000     
+  powheginput keyword icsimax              absent; set to   -1000000.0000000000     
+  powheginput keyword xupbound             absent; set to   -1000000.0000000000     
+  powheginput keyword use-old-ubound       set to    1.0000000000000000     
+  normalization of upper bounding function for radiation successfully loaded
+  powheginput keyword skipextratests       absent; set to   -1000000.0000000000     
+  powheginput keyword btlscalereal         absent; set to   -1000000.0000000000     
+  powheginput keyword sudscalevar          set to    1.0000000000000000     
+ RM48 INITIALIZED:      1005           0         0
+ POWHEG: efficiency in the generation of the remnant variables =   2.5510204081632654E-002
+  powheginput keyword clobberlhe           absent; set to   -1000000.0000000000     
+  powheginput keyword lhrwgt_group_name    set to ""
+  powheginput keyword lhrwgt_group_combine set to ""
+  powheginput keyword lhrwgt_id            set to ""
+  powheginput keyword lhrwgt_descr         set to ""
+
+  POWHEG: generating events
+  powheginput keyword fullrwgt             absent; set to   -1000000.0000000000     
+  powheginput keyword rwl_file             set to "pwg-rwl.dat"
+  powheginput keyword max_io_bufsize       absent; set to   -1000000.0000000000     
+Weight    1
+   id=1001,
+   group=1,
+   key value pairs:
+      lhapdf=0.32530D+06
+      renscfact=0.10000D+01
+      facscfact=0.10000D+01
+Weight    2
+   id=1002,
+   group=1,
+   key value pairs:
+      lhapdf=0.32530D+06
+      renscfact=0.10000D+01
+      facscfact=0.20000D+01
+Weight    3
+   id=1003,
+   group=1,
+   key value pairs:
+      lhapdf=0.32530D+06
+      renscfact=0.10000D+01
+      facscfact=0.50000D+00
+Weight    4
+   id=1004,
+   group=1,
+   key value pairs:
+      lhapdf=0.32530D+06
+      renscfact=0.20000D+01
+      facscfact=0.10000D+01
+Weight    5
+   id=1005,
+   group=1,
+   key value pairs:
+      lhapdf=0.32530D+06
+      renscfact=0.20000D+01
+      facscfact=0.20000D+01
+Weight    6
+   id=1006,
+   group=1,
+   key value pairs:
+      lhapdf=0.32530D+06
+      renscfact=0.20000D+01
+      facscfact=0.50000D+00
+Weight    7
+   id=1007,
+   group=1,
+   key value pairs:
+      lhapdf=0.32530D+06
+      renscfact=0.50000D+00
+      facscfact=0.10000D+01
+Weight    8
+   id=1008,
+   group=1,
+   key value pairs:
+      lhapdf=0.32530D+06
+      renscfact=0.50000D+00
+      facscfact=0.20000D+01
+Weight    9
+   id=1009,
+   group=1,
+   key value pairs:
+      lhapdf=0.32530D+06
+      renscfact=0.50000D+00
+      facscfact=0.50000D+00
+Weight   10
+   id=3200,
+   group=2,
+   key value pairs:
+      lhapdf=0.32530D+06
+Weight   11
+   id=3201,
+   group=2,
+   key value pairs:
+      lhapdf=0.32530D+06
+Weight   12
+   id=3202,
+   group=2,
+   key value pairs:
+      lhapdf=0.32530D+06
+Weight   13
+   id=3203,
+   group=2,
+   key value pairs:
+      lhapdf=0.32530D+06
+Weight   14
+   id=3204,
+   group=2,
+   key value pairs:
+      lhapdf=0.32530D+06
+Weight   15
+   id=3205,
+   group=2,
+   key value pairs:
+      lhapdf=0.32530D+06
+Weight   16
+   id=3206,
+   group=2,
+   key value pairs:
+      lhapdf=0.32531D+06
+Weight   17
+   id=3207,
+   group=2,
+   key value pairs:
+      lhapdf=0.32531D+06
+Weight   18
+   id=3208,
+   group=2,
+   key value pairs:
+      lhapdf=0.32531D+06
+Weight   19
+   id=3209,
+   group=2,
+   key value pairs:
+      lhapdf=0.32531D+06
+Weight   20
+   id=3210,
+   group=2,
+   key value pairs:
+      lhapdf=0.32531D+06
+Weight   21
+   id=3211,
+   group=2,
+   key value pairs:
+      lhapdf=0.32531D+06
+Weight   22
+   id=3212,
+   group=2,
+   key value pairs:
+      lhapdf=0.32531D+06
+Weight   23
+   id=3213,
+   group=2,
+   key value pairs:
+      lhapdf=0.32531D+06
+Weight   24
+   id=3214,
+   group=2,
+   key value pairs:
+      lhapdf=0.32531D+06
+Weight   25
+   id=3215,
+   group=2,
+   key value pairs:
+      lhapdf=0.32532D+06
+Weight   26
+   id=3216,
+   group=2,
+   key value pairs:
+      lhapdf=0.32532D+06
+Weight   27
+   id=3217,
+   group=2,
+   key value pairs:
+      lhapdf=0.32532D+06
+Weight   28
+   id=3218,
+   group=2,
+   key value pairs:
+      lhapdf=0.32532D+06
+Weight   29
+   id=3219,
+   group=2,
+   key value pairs:
+      lhapdf=0.32532D+06
+Weight   30
+   id=3220,
+   group=2,
+   key value pairs:
+      lhapdf=0.32532D+06
+Weight   31
+   id=3221,
+   group=2,
+   key value pairs:
+      lhapdf=0.32532D+06
+Weight   32
+   id=3222,
+   group=2,
+   key value pairs:
+      lhapdf=0.32532D+06
+Weight   33
+   id=3223,
+   group=2,
+   key value pairs:
+      lhapdf=0.32532D+06
+Weight   34
+   id=3224,
+   group=2,
+   key value pairs:
+      lhapdf=0.32532D+06
+Weight   35
+   id=3225,
+   group=2,
+   key value pairs:
+      lhapdf=0.32532D+06
+Weight   36
+   id=3226,
+   group=2,
+   key value pairs:
+      lhapdf=0.32533D+06
+Weight   37
+   id=3227,
+   group=2,
+   key value pairs:
+      lhapdf=0.32533D+06
+Weight   38
+   id=3228,
+   group=2,
+   key value pairs:
+      lhapdf=0.32533D+06
+Weight   39
+   id=3229,
+   group=2,
+   key value pairs:
+      lhapdf=0.32533D+06
+Weight   40
+   id=3230,
+   group=2,
+   key value pairs:
+      lhapdf=0.32533D+06
+Weight   41
+   id=3231,
+   group=2,
+   key value pairs:
+      lhapdf=0.32533D+06
+Weight   42
+   id=3232,
+   group=2,
+   key value pairs:
+      lhapdf=0.32533D+06
+Weight   43
+   id=3233,
+   group=2,
+   key value pairs:
+      lhapdf=0.32533D+06
+Weight   44
+   id=3234,
+   group=2,
+   key value pairs:
+      lhapdf=0.32533D+06
+Weight   45
+   id=3235,
+   group=2,
+   key value pairs:
+      lhapdf=0.32534D+06
+Weight   46
+   id=3236,
+   group=2,
+   key value pairs:
+      lhapdf=0.32534D+06
+Weight   47
+   id=3237,
+   group=2,
+   key value pairs:
+      lhapdf=0.32534D+06
+Weight   48
+   id=3238,
+   group=2,
+   key value pairs:
+      lhapdf=0.32534D+06
+Weight   49
+   id=3239,
+   group=2,
+   key value pairs:
+      lhapdf=0.32534D+06
+Weight   50
+   id=3240,
+   group=2,
+   key value pairs:
+      lhapdf=0.32534D+06
+Weight   51
+   id=3241,
+   group=2,
+   key value pairs:
+      lhapdf=0.32534D+06
+Weight   52
+   id=3242,
+   group=2,
+   key value pairs:
+      lhapdf=0.32534D+06
+Weight   53
+   id=3243,
+   group=2,
+   key value pairs:
+      lhapdf=0.32534D+06
+Weight   54
+   id=3244,
+   group=2,
+   key value pairs:
+      lhapdf=0.32534D+06
+Weight   55
+   id=3245,
+   group=2,
+   key value pairs:
+      lhapdf=0.32534D+06
+Weight   56
+   id=3246,
+   group=2,
+   key value pairs:
+      lhapdf=0.32535D+06
+Weight   57
+   id=3247,
+   group=2,
+   key value pairs:
+      lhapdf=0.32535D+06
+Weight   58
+   id=3248,
+   group=2,
+   key value pairs:
+      lhapdf=0.32535D+06
+Weight   59
+   id=3249,
+   group=2,
+   key value pairs:
+      lhapdf=0.32535D+06
+Weight   60
+   id=3250,
+   group=2,
+   key value pairs:
+      lhapdf=0.32535D+06
+Weight   61
+   id=3251,
+   group=2,
+   key value pairs:
+      lhapdf=0.32535D+06
+Weight   62
+   id=3252,
+   group=2,
+   key value pairs:
+      lhapdf=0.32535D+06
+Weight   63
+   id=3253,
+   group=2,
+   key value pairs:
+      lhapdf=0.32535D+06
+Weight   64
+   id=3254,
+   group=2,
+   key value pairs:
+      lhapdf=0.32535D+06
+Weight   65
+   id=3255,
+   group=2,
+   key value pairs:
+      lhapdf=0.32536D+06
+Weight   66
+   id=3256,
+   group=2,
+   key value pairs:
+      lhapdf=0.32536D+06
+Weight   67
+   id=3257,
+   group=2,
+   key value pairs:
+      lhapdf=0.32536D+06
+Weight   68
+   id=3258,
+   group=2,
+   key value pairs:
+      lhapdf=0.32536D+06
+Weight   69
+   id=3259,
+   group=2,
+   key value pairs:
+      lhapdf=0.32536D+06
+Weight   70
+   id=3260,
+   group=2,
+   key value pairs:
+      lhapdf=0.32536D+06
+Weight   71
+   id=3261,
+   group=2,
+   key value pairs:
+      lhapdf=0.32536D+06
+Weight   72
+   id=3262,
+   group=2,
+   key value pairs:
+      lhapdf=0.32536D+06
+Weight   73
+   id=3263,
+   group=2,
+   key value pairs:
+      lhapdf=0.32536D+06
+Weight   74
+   id=3264,
+   group=2,
+   key value pairs:
+      lhapdf=0.32536D+06
+Weight   75
+   id=3265,
+   group=2,
+   key value pairs:
+      lhapdf=0.32536D+06
+Weight   76
+   id=3266,
+   group=2,
+   key value pairs:
+      lhapdf=0.32537D+06
+Weight   77
+   id=3267,
+   group=2,
+   key value pairs:
+      lhapdf=0.32537D+06
+Weight   78
+   id=3268,
+   group=2,
+   key value pairs:
+      lhapdf=0.32537D+06
+Weight   79
+   id=3269,
+   group=2,
+   key value pairs:
+      lhapdf=0.32537D+06
+Weight   80
+   id=3270,
+   group=2,
+   key value pairs:
+      lhapdf=0.32537D+06
+Weight   81
+   id=3271,
+   group=2,
+   key value pairs:
+      lhapdf=0.32537D+06
+Weight   82
+   id=3272,
+   group=2,
+   key value pairs:
+      lhapdf=0.32537D+06
+Weight   83
+   id=3273,
+   group=2,
+   key value pairs:
+      lhapdf=0.32537D+06
+Weight   84
+   id=3274,
+   group=2,
+   key value pairs:
+      lhapdf=0.32537D+06
+Weight   85
+   id=3275,
+   group=2,
+   key value pairs:
+      lhapdf=0.32538D+06
+Weight   86
+   id=3276,
+   group=2,
+   key value pairs:
+      lhapdf=0.32538D+06
+Weight   87
+   id=3277,
+   group=2,
+   key value pairs:
+      lhapdf=0.32538D+06
+Weight   88
+   id=3278,
+   group=2,
+   key value pairs:
+      lhapdf=0.32538D+06
+Weight   89
+   id=3279,
+   group=2,
+   key value pairs:
+      lhapdf=0.32538D+06
+Weight   90
+   id=3280,
+   group=2,
+   key value pairs:
+      lhapdf=0.32538D+06
+Weight   91
+   id=3281,
+   group=2,
+   key value pairs:
+      lhapdf=0.32538D+06
+Weight   92
+   id=3282,
+   group=2,
+   key value pairs:
+      lhapdf=0.32538D+06
+Weight   93
+   id=3283,
+   group=2,
+   key value pairs:
+      lhapdf=0.32538D+06
+Weight   94
+   id=3284,
+   group=2,
+   key value pairs:
+      lhapdf=0.32538D+06
+Weight   95
+   id=3285,
+   group=2,
+   key value pairs:
+      lhapdf=0.32538D+06
+Weight   96
+   id=3286,
+   group=2,
+   key value pairs:
+      lhapdf=0.32539D+06
+Weight   97
+   id=3287,
+   group=2,
+   key value pairs:
+      lhapdf=0.32539D+06
+Weight   98
+   id=3288,
+   group=2,
+   key value pairs:
+      lhapdf=0.32539D+06
+Weight   99
+   id=3289,
+   group=2,
+   key value pairs:
+      lhapdf=0.32539D+06
+Weight  100
+   id=3290,
+   group=2,
+   key value pairs:
+      lhapdf=0.32539D+06
+Weight  101
+   id=3291,
+   group=2,
+   key value pairs:
+      lhapdf=0.32539D+06
+Weight  102
+   id=3292,
+   group=2,
+   key value pairs:
+      lhapdf=0.32539D+06
+Weight  103
+   id=3293,
+   group=2,
+   key value pairs:
+      lhapdf=0.32539D+06
+Weight  104
+   id=3294,
+   group=2,
+   key value pairs:
+      lhapdf=0.32539D+06
+Weight  105
+   id=3295,
+   group=2,
+   key value pairs:
+      lhapdf=0.32540D+06
+Weight  106
+   id=3296,
+   group=2,
+   key value pairs:
+      lhapdf=0.32540D+06
+Weight  107
+   id=3297,
+   group=2,
+   key value pairs:
+      lhapdf=0.32540D+06
+Weight  108
+   id=3298,
+   group=2,
+   key value pairs:
+      lhapdf=0.32540D+06
+Weight  109
+   id=3299,
+   group=2,
+   key value pairs:
+      lhapdf=0.32540D+06
+Weight  110
+   id=3300,
+   group=2,
+   key value pairs:
+      lhapdf=0.32540D+06
+Weight  111
+   id=3301,
+   group=2,
+   key value pairs:
+      lhapdf=0.32540D+06
+Weight  112
+   id=3302,
+   group=2,
+   key value pairs:
+      lhapdf=0.32540D+06
+Weight  113
+   id=2000,
+   group=2,
+   key value pairs:
+      lhapdf=0.30600D+06
+Weight  114
+   id=2001,
+   group=2,
+   key value pairs:
+      lhapdf=0.30600D+06
+Weight  115
+   id=2002,
+   group=2,
+   key value pairs:
+      lhapdf=0.30600D+06
+Weight  116
+   id=2003,
+   group=2,
+   key value pairs:
+      lhapdf=0.30600D+06
+Weight  117
+   id=2004,
+   group=2,
+   key value pairs:
+      lhapdf=0.30600D+06
+Weight  118
+   id=2005,
+   group=2,
+   key value pairs:
+      lhapdf=0.30600D+06
+Weight  119
+   id=2006,
+   group=2,
+   key value pairs:
+      lhapdf=0.30601D+06
+Weight  120
+   id=2007,
+   group=2,
+   key value pairs:
+      lhapdf=0.30601D+06
+Weight  121
+   id=2008,
+   group=2,
+   key value pairs:
+      lhapdf=0.30601D+06
+Weight  122
+   id=2009,
+   group=2,
+   key value pairs:
+      lhapdf=0.30601D+06
+Weight  123
+   id=2010,
+   group=2,
+   key value pairs:
+      lhapdf=0.30601D+06
+Weight  124
+   id=2011,
+   group=2,
+   key value pairs:
+      lhapdf=0.30601D+06
+Weight  125
+   id=2012,
+   group=2,
+   key value pairs:
+      lhapdf=0.30601D+06
+Weight  126
+   id=2013,
+   group=2,
+   key value pairs:
+      lhapdf=0.30601D+06
+Weight  127
+   id=2014,
+   group=2,
+   key value pairs:
+      lhapdf=0.30601D+06
+Weight  128
+   id=2015,
+   group=2,
+   key value pairs:
+      lhapdf=0.30602D+06
+Weight  129
+   id=2016,
+   group=2,
+   key value pairs:
+      lhapdf=0.30602D+06
+Weight  130
+   id=2017,
+   group=2,
+   key value pairs:
+      lhapdf=0.30602D+06
+Weight  131
+   id=2018,
+   group=2,
+   key value pairs:
+      lhapdf=0.30602D+06
+Weight  132
+   id=2019,
+   group=2,
+   key value pairs:
+      lhapdf=0.30602D+06
+Weight  133
+   id=2020,
+   group=2,
+   key value pairs:
+      lhapdf=0.30602D+06
+Weight  134
+   id=2021,
+   group=2,
+   key value pairs:
+      lhapdf=0.30602D+06
+Weight  135
+   id=2022,
+   group=2,
+   key value pairs:
+      lhapdf=0.30602D+06
+Weight  136
+   id=2023,
+   group=2,
+   key value pairs:
+      lhapdf=0.30602D+06
+Weight  137
+   id=2024,
+   group=2,
+   key value pairs:
+      lhapdf=0.30602D+06
+Weight  138
+   id=2025,
+   group=2,
+   key value pairs:
+      lhapdf=0.30602D+06
+Weight  139
+   id=2026,
+   group=2,
+   key value pairs:
+      lhapdf=0.30603D+06
+Weight  140
+   id=2027,
+   group=2,
+   key value pairs:
+      lhapdf=0.30603D+06
+Weight  141
+   id=2028,
+   group=2,
+   key value pairs:
+      lhapdf=0.30603D+06
+Weight  142
+   id=2029,
+   group=2,
+   key value pairs:
+      lhapdf=0.30603D+06
+Weight  143
+   id=2030,
+   group=2,
+   key value pairs:
+      lhapdf=0.30603D+06
+Weight  144
+   id=2031,
+   group=2,
+   key value pairs:
+      lhapdf=0.30603D+06
+Weight  145
+   id=2032,
+   group=2,
+   key value pairs:
+      lhapdf=0.30603D+06
+Weight  146
+   id=2033,
+   group=2,
+   key value pairs:
+      lhapdf=0.30603D+06
+Weight  147
+   id=2034,
+   group=2,
+   key value pairs:
+      lhapdf=0.30603D+06
+Weight  148
+   id=2035,
+   group=2,
+   key value pairs:
+      lhapdf=0.30604D+06
+Weight  149
+   id=2036,
+   group=2,
+   key value pairs:
+      lhapdf=0.30604D+06
+Weight  150
+   id=2037,
+   group=2,
+   key value pairs:
+      lhapdf=0.30604D+06
+Weight  151
+   id=2038,
+   group=2,
+   key value pairs:
+      lhapdf=0.30604D+06
+Weight  152
+   id=2039,
+   group=2,
+   key value pairs:
+      lhapdf=0.30604D+06
+Weight  153
+   id=2040,
+   group=2,
+   key value pairs:
+      lhapdf=0.30604D+06
+Weight  154
+   id=2041,
+   group=2,
+   key value pairs:
+      lhapdf=0.30604D+06
+Weight  155
+   id=2042,
+   group=2,
+   key value pairs:
+      lhapdf=0.30604D+06
+Weight  156
+   id=2043,
+   group=2,
+   key value pairs:
+      lhapdf=0.30604D+06
+Weight  157
+   id=2044,
+   group=2,
+   key value pairs:
+      lhapdf=0.30604D+06
+Weight  158
+   id=2045,
+   group=2,
+   key value pairs:
+      lhapdf=0.30604D+06
+Weight  159
+   id=2046,
+   group=2,
+   key value pairs:
+      lhapdf=0.30605D+06
+Weight  160
+   id=2047,
+   group=2,
+   key value pairs:
+      lhapdf=0.30605D+06
+Weight  161
+   id=2048,
+   group=2,
+   key value pairs:
+      lhapdf=0.30605D+06
+Weight  162
+   id=2049,
+   group=2,
+   key value pairs:
+      lhapdf=0.30605D+06
+Weight  163
+   id=2050,
+   group=2,
+   key value pairs:
+      lhapdf=0.30605D+06
+Weight  164
+   id=2051,
+   group=2,
+   key value pairs:
+      lhapdf=0.30605D+06
+Weight  165
+   id=2052,
+   group=2,
+   key value pairs:
+      lhapdf=0.30605D+06
+Weight  166
+   id=2053,
+   group=2,
+   key value pairs:
+      lhapdf=0.30605D+06
+Weight  167
+   id=2054,
+   group=2,
+   key value pairs:
+      lhapdf=0.30605D+06
+Weight  168
+   id=2055,
+   group=2,
+   key value pairs:
+      lhapdf=0.30606D+06
+Weight  169
+   id=2056,
+   group=2,
+   key value pairs:
+      lhapdf=0.30606D+06
+Weight  170
+   id=2057,
+   group=2,
+   key value pairs:
+      lhapdf=0.30606D+06
+Weight  171
+   id=2058,
+   group=2,
+   key value pairs:
+      lhapdf=0.30606D+06
+Weight  172
+   id=2059,
+   group=2,
+   key value pairs:
+      lhapdf=0.30606D+06
+Weight  173
+   id=2060,
+   group=2,
+   key value pairs:
+      lhapdf=0.30606D+06
+Weight  174
+   id=2061,
+   group=2,
+   key value pairs:
+      lhapdf=0.30606D+06
+Weight  175
+   id=2062,
+   group=2,
+   key value pairs:
+      lhapdf=0.30606D+06
+Weight  176
+   id=2063,
+   group=2,
+   key value pairs:
+      lhapdf=0.30606D+06
+Weight  177
+   id=2064,
+   group=2,
+   key value pairs:
+      lhapdf=0.30606D+06
+Weight  178
+   id=2065,
+   group=2,
+   key value pairs:
+      lhapdf=0.30606D+06
+Weight  179
+   id=2066,
+   group=2,
+   key value pairs:
+      lhapdf=0.30607D+06
+Weight  180
+   id=2067,
+   group=2,
+   key value pairs:
+      lhapdf=0.30607D+06
+Weight  181
+   id=2068,
+   group=2,
+   key value pairs:
+      lhapdf=0.30607D+06
+Weight  182
+   id=2069,
+   group=2,
+   key value pairs:
+      lhapdf=0.30607D+06
+Weight  183
+   id=2070,
+   group=2,
+   key value pairs:
+      lhapdf=0.30607D+06
+Weight  184
+   id=2071,
+   group=2,
+   key value pairs:
+      lhapdf=0.30607D+06
+Weight  185
+   id=2072,
+   group=2,
+   key value pairs:
+      lhapdf=0.30607D+06
+Weight  186
+   id=2073,
+   group=2,
+   key value pairs:
+      lhapdf=0.30607D+06
+Weight  187
+   id=2074,
+   group=2,
+   key value pairs:
+      lhapdf=0.30607D+06
+Weight  188
+   id=2075,
+   group=2,
+   key value pairs:
+      lhapdf=0.30608D+06
+Weight  189
+   id=2076,
+   group=2,
+   key value pairs:
+      lhapdf=0.30608D+06
+Weight  190
+   id=2077,
+   group=2,
+   key value pairs:
+      lhapdf=0.30608D+06
+Weight  191
+   id=2078,
+   group=2,
+   key value pairs:
+      lhapdf=0.30608D+06
+Weight  192
+   id=2079,
+   group=2,
+   key value pairs:
+      lhapdf=0.30608D+06
+Weight  193
+   id=2080,
+   group=2,
+   key value pairs:
+      lhapdf=0.30608D+06
+Weight  194
+   id=2081,
+   group=2,
+   key value pairs:
+      lhapdf=0.30608D+06
+Weight  195
+   id=2082,
+   group=2,
+   key value pairs:
+      lhapdf=0.30608D+06
+Weight  196
+   id=2083,
+   group=2,
+   key value pairs:
+      lhapdf=0.30608D+06
+Weight  197
+   id=2084,
+   group=2,
+   key value pairs:
+      lhapdf=0.30608D+06
+Weight  198
+   id=2085,
+   group=2,
+   key value pairs:
+      lhapdf=0.30608D+06
+Weight  199
+   id=2086,
+   group=2,
+   key value pairs:
+      lhapdf=0.30609D+06
+Weight  200
+   id=2087,
+   group=2,
+   key value pairs:
+      lhapdf=0.30609D+06
+Weight  201
+   id=2088,
+   group=2,
+   key value pairs:
+      lhapdf=0.30609D+06
+Weight  202
+   id=2089,
+   group=2,
+   key value pairs:
+      lhapdf=0.30609D+06
+Weight  203
+   id=2090,
+   group=2,
+   key value pairs:
+      lhapdf=0.30609D+06
+Weight  204
+   id=2091,
+   group=2,
+   key value pairs:
+      lhapdf=0.30609D+06
+Weight  205
+   id=2092,
+   group=2,
+   key value pairs:
+      lhapdf=0.30609D+06
+Weight  206
+   id=2093,
+   group=2,
+   key value pairs:
+      lhapdf=0.30609D+06
+Weight  207
+   id=2094,
+   group=2,
+   key value pairs:
+      lhapdf=0.30609D+06
+Weight  208
+   id=2095,
+   group=2,
+   key value pairs:
+      lhapdf=0.30610D+06
+Weight  209
+   id=2096,
+   group=2,
+   key value pairs:
+      lhapdf=0.30610D+06
+Weight  210
+   id=2097,
+   group=2,
+   key value pairs:
+      lhapdf=0.30610D+06
+Weight  211
+   id=2098,
+   group=2,
+   key value pairs:
+      lhapdf=0.30610D+06
+Weight  212
+   id=2099,
+   group=2,
+   key value pairs:
+      lhapdf=0.30610D+06
+Weight  213
+   id=2100,
+   group=2,
+   key value pairs:
+      lhapdf=0.30610D+06
+Weight  214
+   id=2101,
+   group=2,
+   key value pairs:
+      lhapdf=0.30610D+06
+Weight  215
+   id=2102,
+   group=2,
+   key value pairs:
+      lhapdf=0.30610D+06
+Weight  216
+   id=2104,
+   group=2,
+   key value pairs:
+      lhapdf=0.32250D+06
+Weight  217
+   id=2105,
+   group=2,
+   key value pairs:
+      lhapdf=0.32270D+06
+Weight  218
+   id=2106,
+   group=2,
+   key value pairs:
+      lhapdf=0.32290D+06
+Weight  219
+   id=2107,
+   group=2,
+   key value pairs:
+      lhapdf=0.32310D+06
+Weight  220
+   id=2108,
+   group=2,
+   key value pairs:
+      lhapdf=0.32330D+06
+Weight  221
+   id=2109,
+   group=2,
+   key value pairs:
+      lhapdf=0.32350D+06
+Weight  222
+   id=2110,
+   group=2,
+   key value pairs:
+      lhapdf=0.32370D+06
+Weight  223
+   id=2111,
+   group=2,
+   key value pairs:
+      lhapdf=0.32390D+06
+  powheginput keyword noevents             absent; set to   -1000000.0000000000     
+  powheginput keyword rwl_group_events     set to    2000.0000000000000     
+  powheginput keyword btildeborn           absent; set to   -1000000.0000000000     
+  powheginput keyword btildevirt           absent; set to   -1000000.0000000000     
+  powheginput keyword btildecoll           absent; set to   -1000000.0000000000     
+  powheginput keyword btildereal           absent; set to   -1000000.0000000000     
+ RM48 INITIALIZED:      1005          16         0
+ RM48IN SKIPPING OVER              16
+ Writing virtequiv file...
+ Done
+  powheginput keyword btlscalect           absent; set to   -1000000.0000000000     
+  powheginput keyword testsuda             absent; set to   -1000000.0000000000     
+  powheginput keyword radregion            absent; set to   -1000000.0000000000     
+ RM48 INITIALIZED:      1005         566         0
+ RM48IN SKIPPING OVER             566
+ *************************************
+ scalup set to the min pt in the event
+ *************************************
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0001.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #1, version 1; LHAPDF ID = 325301
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0002.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #2, version 1; LHAPDF ID = 325302
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0003.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #3, version 1; LHAPDF ID = 325303
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0004.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #4, version 1; LHAPDF ID = 325304
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0005.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #5, version 1; LHAPDF ID = 325305
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0006.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #6, version 1; LHAPDF ID = 325306
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0007.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #7, version 1; LHAPDF ID = 325307
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0008.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #8, version 1; LHAPDF ID = 325308
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0009.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #9, version 1; LHAPDF ID = 325309
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0010.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #10, version 1; LHAPDF ID = 325310
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0011.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #11, version 1; LHAPDF ID = 325311
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0012.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #12, version 1; LHAPDF ID = 325312
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0013.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #13, version 1; LHAPDF ID = 325313
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0014.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #14, version 1; LHAPDF ID = 325314
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0015.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #15, version 1; LHAPDF ID = 325315
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0016.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #16, version 1; LHAPDF ID = 325316
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0017.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #17, version 1; LHAPDF ID = 325317
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0018.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #18, version 1; LHAPDF ID = 325318
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0019.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #19, version 1; LHAPDF ID = 325319
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0020.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #20, version 1; LHAPDF ID = 325320
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0021.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #21, version 1; LHAPDF ID = 325321
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0022.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #22, version 1; LHAPDF ID = 325322
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0023.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #23, version 1; LHAPDF ID = 325323
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0024.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #24, version 1; LHAPDF ID = 325324
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0025.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #25, version 1; LHAPDF ID = 325325
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0026.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #26, version 1; LHAPDF ID = 325326
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0027.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #27, version 1; LHAPDF ID = 325327
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0028.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #28, version 1; LHAPDF ID = 325328
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0029.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #29, version 1; LHAPDF ID = 325329
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0030.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #30, version 1; LHAPDF ID = 325330
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0031.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #31, version 1; LHAPDF ID = 325331
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0032.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #32, version 1; LHAPDF ID = 325332
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0033.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #33, version 1; LHAPDF ID = 325333
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0034.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #34, version 1; LHAPDF ID = 325334
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0035.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #35, version 1; LHAPDF ID = 325335
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0036.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #36, version 1; LHAPDF ID = 325336
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0037.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #37, version 1; LHAPDF ID = 325337
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0038.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #38, version 1; LHAPDF ID = 325338
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0039.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #39, version 1; LHAPDF ID = 325339
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0040.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #40, version 1; LHAPDF ID = 325340
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0041.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #41, version 1; LHAPDF ID = 325341
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0042.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #42, version 1; LHAPDF ID = 325342
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0043.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #43, version 1; LHAPDF ID = 325343
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0044.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #44, version 1; LHAPDF ID = 325344
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0045.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #45, version 1; LHAPDF ID = 325345
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0046.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #46, version 1; LHAPDF ID = 325346
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0047.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #47, version 1; LHAPDF ID = 325347
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0048.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #48, version 1; LHAPDF ID = 325348
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0049.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #49, version 1; LHAPDF ID = 325349
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0050.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #50, version 1; LHAPDF ID = 325350
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0051.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #51, version 1; LHAPDF ID = 325351
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0052.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #52, version 1; LHAPDF ID = 325352
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0053.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #53, version 1; LHAPDF ID = 325353
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0054.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #54, version 1; LHAPDF ID = 325354
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0055.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #55, version 1; LHAPDF ID = 325355
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0056.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #56, version 1; LHAPDF ID = 325356
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0057.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #57, version 1; LHAPDF ID = 325357
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0058.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #58, version 1; LHAPDF ID = 325358
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0059.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #59, version 1; LHAPDF ID = 325359
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0060.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #60, version 1; LHAPDF ID = 325360
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0061.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #61, version 1; LHAPDF ID = 325361
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0062.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #62, version 1; LHAPDF ID = 325362
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0063.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #63, version 1; LHAPDF ID = 325363
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0064.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #64, version 1; LHAPDF ID = 325364
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0065.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #65, version 1; LHAPDF ID = 325365
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0066.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #66, version 1; LHAPDF ID = 325366
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0067.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #67, version 1; LHAPDF ID = 325367
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0068.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #68, version 1; LHAPDF ID = 325368
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0069.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #69, version 1; LHAPDF ID = 325369
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0070.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #70, version 1; LHAPDF ID = 325370
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0071.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #71, version 1; LHAPDF ID = 325371
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0072.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #72, version 1; LHAPDF ID = 325372
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0073.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #73, version 1; LHAPDF ID = 325373
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0074.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #74, version 1; LHAPDF ID = 325374
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0075.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #75, version 1; LHAPDF ID = 325375
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0076.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #76, version 1; LHAPDF ID = 325376
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0077.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #77, version 1; LHAPDF ID = 325377
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0078.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #78, version 1; LHAPDF ID = 325378
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0079.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #79, version 1; LHAPDF ID = 325379
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0080.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #80, version 1; LHAPDF ID = 325380
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0081.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #81, version 1; LHAPDF ID = 325381
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0082.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #82, version 1; LHAPDF ID = 325382
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0083.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #83, version 1; LHAPDF ID = 325383
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0084.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #84, version 1; LHAPDF ID = 325384
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0085.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #85, version 1; LHAPDF ID = 325385
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0086.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #86, version 1; LHAPDF ID = 325386
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0087.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #87, version 1; LHAPDF ID = 325387
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0088.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #88, version 1; LHAPDF ID = 325388
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0089.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #89, version 1; LHAPDF ID = 325389
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0090.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #90, version 1; LHAPDF ID = 325390
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0091.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #91, version 1; LHAPDF ID = 325391
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0092.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #92, version 1; LHAPDF ID = 325392
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0093.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #93, version 1; LHAPDF ID = 325393
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0094.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #94, version 1; LHAPDF ID = 325394
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0095.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #95, version 1; LHAPDF ID = 325395
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0096.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #96, version 1; LHAPDF ID = 325396
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0097.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #97, version 1; LHAPDF ID = 325397
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0098.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #98, version 1; LHAPDF ID = 325398
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0099.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #99, version 1; LHAPDF ID = 325399
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0100.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #100, version 1; LHAPDF ID = 325400
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0101.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #101, version 1; LHAPDF ID = 325401
+  check: alpha_s(Mz)=  0.11600210403341857     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.18590415209195268     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_as_0118_mc_hessian_pdfas/NNPDF31_nnlo_as_0118_mc_hessian_pdfas_0102.dat
+NNPDF31_nnlo_as_0118_mc_hessian_pdfas PDF set, member #102, version 1; LHAPDF ID = 325402
+  check: alpha_s(Mz)=  0.12000221977880079     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.23268984164819539     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0000.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #0, version 1; LHAPDF ID = 306000
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0001.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #1, version 1; LHAPDF ID = 306001
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0002.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #2, version 1; LHAPDF ID = 306002
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0003.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #3, version 1; LHAPDF ID = 306003
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0004.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #4, version 1; LHAPDF ID = 306004
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0005.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #5, version 1; LHAPDF ID = 306005
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0006.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #6, version 1; LHAPDF ID = 306006
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0007.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #7, version 1; LHAPDF ID = 306007
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0008.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #8, version 1; LHAPDF ID = 306008
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0009.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #9, version 1; LHAPDF ID = 306009
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0010.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #10, version 1; LHAPDF ID = 306010
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0011.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #11, version 1; LHAPDF ID = 306011
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0012.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #12, version 1; LHAPDF ID = 306012
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0013.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #13, version 1; LHAPDF ID = 306013
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0014.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #14, version 1; LHAPDF ID = 306014
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0015.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #15, version 1; LHAPDF ID = 306015
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0016.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #16, version 1; LHAPDF ID = 306016
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0017.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #17, version 1; LHAPDF ID = 306017
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0018.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #18, version 1; LHAPDF ID = 306018
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0019.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #19, version 1; LHAPDF ID = 306019
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0020.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #20, version 1; LHAPDF ID = 306020
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0021.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #21, version 1; LHAPDF ID = 306021
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0022.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #22, version 1; LHAPDF ID = 306022
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0023.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #23, version 1; LHAPDF ID = 306023
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0024.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #24, version 1; LHAPDF ID = 306024
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0025.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #25, version 1; LHAPDF ID = 306025
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0026.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #26, version 1; LHAPDF ID = 306026
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0027.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #27, version 1; LHAPDF ID = 306027
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0028.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #28, version 1; LHAPDF ID = 306028
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0029.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #29, version 1; LHAPDF ID = 306029
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0030.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #30, version 1; LHAPDF ID = 306030
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0031.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #31, version 1; LHAPDF ID = 306031
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0032.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #32, version 1; LHAPDF ID = 306032
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0033.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #33, version 1; LHAPDF ID = 306033
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0034.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #34, version 1; LHAPDF ID = 306034
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0035.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #35, version 1; LHAPDF ID = 306035
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0036.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #36, version 1; LHAPDF ID = 306036
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0037.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #37, version 1; LHAPDF ID = 306037
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0038.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #38, version 1; LHAPDF ID = 306038
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0039.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #39, version 1; LHAPDF ID = 306039
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0040.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #40, version 1; LHAPDF ID = 306040
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0041.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #41, version 1; LHAPDF ID = 306041
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0042.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #42, version 1; LHAPDF ID = 306042
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0043.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #43, version 1; LHAPDF ID = 306043
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0044.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #44, version 1; LHAPDF ID = 306044
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0045.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #45, version 1; LHAPDF ID = 306045
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0046.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #46, version 1; LHAPDF ID = 306046
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0047.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #47, version 1; LHAPDF ID = 306047
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0048.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #48, version 1; LHAPDF ID = 306048
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0049.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #49, version 1; LHAPDF ID = 306049
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0050.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #50, version 1; LHAPDF ID = 306050
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0051.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #51, version 1; LHAPDF ID = 306051
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0052.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #52, version 1; LHAPDF ID = 306052
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0053.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #53, version 1; LHAPDF ID = 306053
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0054.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #54, version 1; LHAPDF ID = 306054
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0055.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #55, version 1; LHAPDF ID = 306055
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0056.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #56, version 1; LHAPDF ID = 306056
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0057.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #57, version 1; LHAPDF ID = 306057
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0058.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #58, version 1; LHAPDF ID = 306058
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0059.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #59, version 1; LHAPDF ID = 306059
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0060.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #60, version 1; LHAPDF ID = 306060
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0061.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #61, version 1; LHAPDF ID = 306061
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0062.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #62, version 1; LHAPDF ID = 306062
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0063.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #63, version 1; LHAPDF ID = 306063
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0064.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #64, version 1; LHAPDF ID = 306064
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0065.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #65, version 1; LHAPDF ID = 306065
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0066.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #66, version 1; LHAPDF ID = 306066
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0067.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #67, version 1; LHAPDF ID = 306067
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0068.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #68, version 1; LHAPDF ID = 306068
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0069.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #69, version 1; LHAPDF ID = 306069
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0070.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #70, version 1; LHAPDF ID = 306070
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0071.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #71, version 1; LHAPDF ID = 306071
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0072.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #72, version 1; LHAPDF ID = 306072
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0073.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #73, version 1; LHAPDF ID = 306073
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0074.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #74, version 1; LHAPDF ID = 306074
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0075.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #75, version 1; LHAPDF ID = 306075
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0076.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #76, version 1; LHAPDF ID = 306076
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0077.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #77, version 1; LHAPDF ID = 306077
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0078.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #78, version 1; LHAPDF ID = 306078
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0079.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #79, version 1; LHAPDF ID = 306079
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0080.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #80, version 1; LHAPDF ID = 306080
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0081.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #81, version 1; LHAPDF ID = 306081
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0082.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #82, version 1; LHAPDF ID = 306082
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0083.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #83, version 1; LHAPDF ID = 306083
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0084.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #84, version 1; LHAPDF ID = 306084
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0085.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #85, version 1; LHAPDF ID = 306085
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0086.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #86, version 1; LHAPDF ID = 306086
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0087.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #87, version 1; LHAPDF ID = 306087
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0088.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #88, version 1; LHAPDF ID = 306088
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+LHAPDF 6.2.3 loading /cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2.3-f9f0c7ff52c430bdce541de202b20196/share/LHAPDF/NNPDF31_nnlo_hessian_pdfas/NNPDF31_nnlo_hessian_pdfas_0089.dat
+NNPDF31_nnlo_hessian_pdfas PDF set, member #89, version 1; LHAPDF ID = 306089
+  check: alpha_s(Mz)=  0.11800215829284905     
+  alpha_s order (0,1,2):            2
+  Lambda 5 is   0.20839090910744684     
+ RM48 INITIALIZED:      1005         541         0
+ RM48IN SKIPPING OVER             541
+release CMSSW_10_6_17_patch1 already exists
+>> Local Products Rules ..... started
+>> Local Products Rules ..... done
+>> Building CMSSW version CMSSW_10_6_17_patch1 ----
+>> Subsystem BigProducts built
+gmake[1]: Entering directory '/uscms_data/d3/cjmoore/powheg/test/MYOMC/RunIISummer20UL17wmLHE/CMSSW_10_6_17_patch1'
+>> Local Products Rules ..... started
+>> Local Products Rules ..... done
+>> Creating project symlinks
+>> Done python_symlink
+>> Compiling python modules cfipython/slc7_amd64_gcc700
+>> Compiling python modules python
+>> All python modules compiled

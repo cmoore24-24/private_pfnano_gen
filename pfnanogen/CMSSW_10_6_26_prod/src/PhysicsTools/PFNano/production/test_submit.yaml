@@ -1,0 +1,20 @@
+defaults:
+  isMC: True
+  reco_version: UL
+  year: 2017
+  #globaltag: 106X_mc2017_realistic_v9
+  # Automatic unitsPerJob=max job target runtime, totalUnits = events
+  #splitting: Automatic
+  #totalUnits: 5000
+  #unitsPerJob: 180
+  splitting: FileBased
+  totalUnits: 20
+  unitsPerJob: 2
+  pset: $CMSSW_BASE/src/PhysicsTools/PFNano/test/ak15/nano_mc_2017_UL_NANO.py
+  allowInvalid: True
+
+samples:
+  HJ: 
+    datasets: 
+      HJ_Run2017: /store/user/cmoore/HJ_Mini
+

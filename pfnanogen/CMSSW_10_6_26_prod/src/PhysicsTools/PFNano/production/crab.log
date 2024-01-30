@@ -1,0 +1,5 @@
+DEBUG 2022-09-29 01:09:58.816 UTC: 	 CRAB Client version: v3.220823
+DEBUG 2022-09-29 01:09:58.816 UTC: 	 Running on: Linux cmslpc172.fnal.gov 3.10.0-1160.76.1.el7.x86_64 #1 SMP Tue Aug 9 08:47:12 CDT 2022 x86_64 x86_64 x86_64 GNU/Linux - Scientific Linux 7.9 (Nitrogen)
+DEBUG 2022-09-29 01:09:58.816 UTC: 	 Executing command: 'submit'
+DEBUG 2022-09-29 01:09:58.817 UTC: 	 Found CRAB cache file /uscms/home/cjmoore/.crab3
+DEBUG 2022-09-29 01:09:58.818 UTC: 	 Will use CRAB Analysis plugin (i.e. will run an analysis job type).

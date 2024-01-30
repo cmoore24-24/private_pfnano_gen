@@ -1,0 +1,2 @@
+01:/usr/bin/rm -f lib/slc7_amd64_gcc700/pluginPhysicsToolsPatAlgos_plugins.so lib/slc7_amd64_gcc700/PhysicsToolsPatAlgos_plugins.edmplugin
+90:edmPluginRefresh lib/slc7_amd64_gcc700

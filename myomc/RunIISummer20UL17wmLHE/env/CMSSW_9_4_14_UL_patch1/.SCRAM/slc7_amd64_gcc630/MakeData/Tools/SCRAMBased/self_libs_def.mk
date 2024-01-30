@@ -1,0 +1,12 @@
+PhotosppInterface_PACKAGE := self/src/GeneratorInterface/PhotosInterface/plugins
+PhotosInterfaceDefault_PACKAGE := self/src/GeneratorInterface/PhotosInterface/plugins
+DQMHcalTasksAuto_PACKAGE := self/src/DQM/HcalTasks/plugins
+PhysicsToolsJetMCAlgos_PACKAGE := self/src/PhysicsTools/JetMCAlgos/src
+PhysicsToolsJetMCAlgosPlugins_PACKAGE := self/src/PhysicsTools/JetMCAlgos/plugins
+matchGenHFHadrons_PACKAGE := self/src/PhysicsTools/JetMCAlgos/test
+matchOneToOne_PACKAGE := self/src/PhysicsTools/JetMCAlgos/test
+printEvent_PACKAGE := self/src/PhysicsTools/JetMCAlgos/test
+jetMatch_PACKAGE := self/src/PhysicsTools/JetMCAlgos/test
+GeneratorInterfacePhotosInterface_PACKAGE := self/src/GeneratorInterface/PhotosInterface/src
+FWCoreVersion_PACKAGE := self/src/FWCore/Version/src
+DQMHcalTasks_PACKAGE := self/src/DQM/HcalTasks/src

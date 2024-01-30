@@ -1,0 +1,2 @@
+ALL_SUBSYSTEMS+=HeavyFlavorAnalysis
+subdirs_src_HeavyFlavorAnalysis = src_HeavyFlavorAnalysis_Skimming

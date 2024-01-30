@@ -1,0 +1,136 @@
+#!/usr/bin/python
+
+import argparse
+import os
+import subprocess
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--tag", default="Nov30", help="tag", type=str)
+parser.add_argument("--ul", choices=['preUL','20','19','lc'], required=True, help="ul 19 or 20 or preUL")
+args = parser.parse_args()
+
+tag = args.tag
+eosbase = "root://cmseos.fnal.gov/"
+locdir = tag
+if args.ul=='20':
+    script = "nano_mc_2017_UL_NANO.py"
+    eospath = "/store/user/lpcdihiggsboost/cmantill/MiniAOD/UL20/"
+    #eospath = "/store/user/lpcdihiggsboost/cmantill/MiniAOD_coli/UL20/"
+    #eospath = "/store/user/lpcdihiggsboost/gen/"
+    #outdir = "/store/user/lpcpfnano/cmantill/v2_2/2017/HWWPrivate/"
+    outdir = "/store/user/lpcpfnano/cmantill/v2_2/2017/XHYPrivatev9/"
+elif args.ul=='preUL':
+    eospath = "/store/user/lpcdihiggsboost/cmantill/MiniAOD_preUL/"
+    script = "nano_mc_2017_preUL_NANO.py"
+    outdir = "/store/user/lpchbb/cmantill/v2_2/2017preUL/"
+elif args.ul=="lc":
+    eospath = "/store/user/lcorcodi/XYH_WWbb_gridpacks/"
+    script = "nano_mc_2017_ULv1_NANO.py"
+    outdir = "/store/user/lpchbb/cmantill/v2_2/2017v1/HWW/"
+else:
+    script = "nano_mc_2017_ULv1_NANO.py"
+    #eospath = "/store/user/lpcdihiggsboost/cmantill/MiniAOD_coli/UL19v1/"
+    outdir = "/store/user/lpchbb/cmantill/v2_2/2017v1/HWW/" 
+    eospath = "/store/user/lpcdihiggsboost/gen/"
+
+samples = {
+    "20": {
+        #"jhu_HHbbWW": "ULv2/Feb27",
+        #"pythia_HHbbWW": "ULv2/Feb27",
+        #"jhu_HHbbZZ": "ULv2/Feb27",
+        # 'XHY_mx1200_my10': "XHY/ULv2/Mar18_mx1200_my10",
+        # 'XHY_mx1200_my20': "XHY/ULv2/Mar18_mx1200_my20",
+        # "XHY_mx1200_my40": "XHY/ULv2/Mar5_mx1200_my40",
+        # "XHY_mx1200_my60": "XHY/ULv2/Feb27_mx1200_my60",
+        # "XHY_mx1200_my125": "XHY/ULv2/Mar4_mx1200_my125",
+        # "XHY_mx1200_my250": "XHY/ULv2/Mar4_mx1200_my250",
+        # "XHY_mx1200_my300": "XHY/ULv2/Mar4_mx1200_my300",
+        #"XHY_mx2000_my5": "XHY/ULv2/Mar18_mx2000_my5",
+        #"XHY_mx2000_my10": "XHY/ULv2/Mar18_mx2000_my10",
+        #"XHY_mx2000_my20": "XHY/ULv2/Mar18_mx2000_my20",
+        #"BulkGravitonToHHTo4W_MX-600to6000_MH-15to250_JHUVariableWMass_part1": "DNNTuples_PrivateMC",
+        #"BulkGravitonToHHTo4W_MX-600to6000_MH-15to250_JHUVariableWMass_part2": "DNNTuples_PrivateMC",
+        #"BulkGravitonToHHTo4W_MX-600to6000_MH-15to250_JHUVariableWMass_part3": "DNNTuples_PrivateMC",
+        #"BulkGravitonToHHTo4W_JHUGen_MX-600to6000_MH-15to250": "20UL17MiniAODv2",
+        #"BulkGravitonToHHTo4W_JHUGen_MX-600to6000_MH-15to250_ext1": "20UL17MiniAODv2",
+        #"BulkGravitonToHHTo4W_JHUGen_MX-600to6000_MH-15to250_v2_ext1": "20UL17MiniAODv2",
+        #"BulkGravitonToHHTo4W_JHUGen_MX-600to6000_MH-15to250_v2": "20UL17MiniAODv2",
+        #"GluGluToBulkGravitonToHHTo4W_JHUGen_M-2500_narrow": "MiniAOD20UL",
+        "GluGluToHToWWTo4q": ""
+    },
+    "19": {
+        #"jhu_HHbbWW": "ULv1/Feb27",
+        #"pythia_HHbbWW": "ULv1/Feb27",
+        #"jhu_HHbbZZ": "ULv1/Feb27",
+        #"XHY_my400": "XHY/ULv1/Feb27_mx1200_my400",
+        #"XHY_my60": "XHY/ULv1/Feb27_mx1200_my60",
+        #"XHY_my125": "XHY/ULv2/Mar4_mx1200_my125",
+        #"XHY_my250": "XHY/ULv2/Mar4_mx1200_my250",
+        #"XHY_my300": "XHY/ULv2/Mar4_mx1200_my300",
+        #"XHY_my40": "XHY/ULv2/Mar4_mx1200_my40",
+        #"BulkGravitonToHHTo4W_JHUGen_MX-600to6000_MH-15to250_v2_ext1": "19UL17MiniAOD"
+        #"BulkGravitonToHHTo4W_JHUGen_MX-600to6000_MH-15to250_v2": "19UL17MiniAOD"
+        #"GluGluToBulkGravitonToHHTo4W_JHUGen_M-1000_narrow": "MiniAOD19UL"
+    },
+    "preUL": {
+        "HHbbgg_cHH1": "HHbbgg_cHH1",
+    },
+    "lc": {
+        "NMSSM_XYH_WWbb_MX_1500_MY400": "NMSSM_XYH_WWbb_MX_1500_TuneCP5_13TeV-madgraph-pythia8/MINI_private_July21_expedite/210712_215040/0000/", 
+        "NMSSM_XYH_WWbb_MX_1300_MY200": "NMSSM_XYH_WWbb_MX_1300_TuneCP5_13TeV-madgraph-pythia8/MINI_private_July21_expedite/210712_215151/0000/", 
+        "NMSSM_XYH_WWbb_MX_2000_MY400": "NMSSM_XYH_WWbb_MX_2000_TuneCP5_13TeV-madgraph-pythia8/MINI_private_July21_expedite/210712_215301/0000/",
+        "NMSSM_XYH_WWbb_MX_3000_MY800": "NMSSM_XYH_WWbb_MX_3000_TuneCP5_13TeV-madgraph-pythia8/MINI_private_July21_expedite/210712_215410/0000/",
+    },
+}[args.ul]
+
+os.system(f"mkdir -p {locdir}")
+os.system(f"mkdir -p {locdir}/logs")
+
+for sample,miniaoddir in samples.items():
+    try:
+        if "XHY" in sample or "HHbbgg" in sample or "XYH" in sample:
+            files = subprocess.check_output(f"eos {eosbase} ls {eospath}/{miniaoddir}/", shell=True).decode('utf-8').split("\n")[:-1] 
+        elif "JHUVariable" in sample:
+            import glob
+            files = glob.glob(f"/eos/uscms{eospath}{sample}/{miniaoddir}/*/*/*.root")
+        else:
+            files = subprocess.check_output(f"eos {eosbase} ls {eospath}/{sample}/{miniaoddir}/", shell=True).decode('utf-8').split("\n")[:-1]
+
+        for j,ifile in enumerate(files):   
+            condor_templ_file = open("submit.templ.jdl")
+            localcondor = f"{locdir}/{sample}_{j}.jdl"
+            condor_file = open(localcondor, "w")
+            for line in condor_templ_file:
+                line = line.replace("DIRECTORY", locdir)
+                line = line.replace("PREFIX", sample)
+                line = line.replace("JOBID", str(j))
+                line = line.replace("SCRIPTNAME", script)
+                condor_file.write(line)
+            condor_file.close()
+            condor_templ_file.close()
+            
+            sh_templ_file = open("submit.templ.sh")
+            localsh = f"{locdir}/{sample}_{j}.sh"
+            sh_file = open(localsh, "w")
+            for line in sh_templ_file:
+                line = line.replace("SCRIPTNAME", script)
+                if "XHY" in sample or "HHbbgg" in sample or "XYH" in sample:
+                    line = line.replace("INPUTFILE", f"{eosbase}{eospath}/{miniaoddir}/{ifile}")
+                elif "JHUVariable" in sample:
+                    iifile = ifile.replace("/eos/uscms",eosbase)
+                    line = line.replace("INPUTFILE", iifile)
+                else:
+                    line = line.replace("INPUTFILE", f"{eosbase}{eospath}{sample}/{miniaoddir}/{ifile}")
+                line = line.replace("OUTPUTFILE", f"{eosbase}{outdir}{sample}/{ifile}")
+                sh_file.write(line)
+            sh_file.close()
+            sh_templ_file.close()
+
+            os.system(f"chmod u+x {localsh}")
+            if os.path.exists("%s.log" % localcondor):
+                os.system("rm %s.log" % localcondor)
+                
+            os.system('condor_submit %s' % localcondor) 
+            #if j==0: break
+    except:
+        print(f"No files for sample {sample}")

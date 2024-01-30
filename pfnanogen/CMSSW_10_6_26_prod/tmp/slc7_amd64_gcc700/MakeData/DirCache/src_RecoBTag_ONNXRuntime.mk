@@ -1,0 +1,2 @@
+ALL_PACKAGES += RecoBTag/ONNXRuntime
+subdirs_src_RecoBTag_ONNXRuntime := src_RecoBTag_ONNXRuntime_plugins src_RecoBTag_ONNXRuntime_python src_RecoBTag_ONNXRuntime_test src_RecoBTag_ONNXRuntime_src

@@ -1,0 +1,10 @@
+plugin-poisoned-RecoBTagONNXRuntimePlugins.so BoostedJetONNXJetTagsProducer CMS%EDM%Framework%Module
+plugin-poisoned-RecoBTagONNXRuntimePlugins.so BoostedJetONNXJetTagsProducer CMS%EDM%Framework%ParameterSet%Description
+plugin-poisoned-RecoBTagONNXRuntimePlugins.so DeepCombinedONNXJetTagsProducer CMS%EDM%Framework%Module
+plugin-poisoned-RecoBTagONNXRuntimePlugins.so DeepCombinedONNXJetTagsProducer CMS%EDM%Framework%ParameterSet%Description
+plugin-poisoned-RecoBTagONNXRuntimePlugins.so DeepDoubleXONNXJetTagsProducer CMS%EDM%Framework%Module
+plugin-poisoned-RecoBTagONNXRuntimePlugins.so DeepDoubleXONNXJetTagsProducer CMS%EDM%Framework%ParameterSet%Description
+plugin-poisoned-RecoBTagONNXRuntimePlugins.so DeepFlavourONNXJetTagsProducer CMS%EDM%Framework%Module
+plugin-poisoned-RecoBTagONNXRuntimePlugins.so DeepFlavourONNXJetTagsProducer CMS%EDM%Framework%ParameterSet%Description
+plugin-poisoned-RecoBTagONNXRuntimePlugins.so DeepVertexONNXJetTagsProducer CMS%EDM%Framework%Module
+plugin-poisoned-RecoBTagONNXRuntimePlugins.so DeepVertexONNXJetTagsProducer CMS%EDM%Framework%ParameterSet%Description

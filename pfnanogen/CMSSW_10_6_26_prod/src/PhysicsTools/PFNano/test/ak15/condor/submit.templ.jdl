@@ -1,0 +1,17 @@
+#!/usr/bin/env condor_submit
+
+universe                = vanilla
+executable              = DIRECTORY/PREFIX_JOBID.sh
+should_transfer_files   = YES
+transfer_input_files    = SCRIPTNAME
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_output_files   = ""
+request_memory          = 4500
+use_x509userproxy       = true
+x509userproxy           = /uscms/home/cjmoore/x509up_u58900
+
+output                  = DIRECTORY/logs/PREFIX_JOBID.out
+error                   = DIRECTORY/logs/PREFIX_JOBID.err
+log                     = DIRECTORY/logs/PREFIX_JOBID.log
+
+queue 1
